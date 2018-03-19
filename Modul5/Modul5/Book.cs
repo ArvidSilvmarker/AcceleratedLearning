@@ -8,7 +8,7 @@ namespace Modul5
         public static void Run()
         {
             var b1 = new Book();
-            b1.Pages = -10;
+            b1.Pages = 2000;
             if (b1.Pages < 0)
             {
                 Console.WriteLine("Fel input!");
@@ -55,9 +55,9 @@ namespace Modul5
 
 
 
-        public int Weight { get; set; }
+        public byte Weight { get; set; }
         public string Review { get; set; }
-        private const int WEIGHTPERPAGE = 3;
+        private const byte WEIGHTPERPAGE = 3;
 
     }
 
