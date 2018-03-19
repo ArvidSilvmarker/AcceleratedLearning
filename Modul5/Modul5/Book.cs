@@ -11,8 +11,8 @@ namespace Modul5
             b1.Pages = 2000;
             if (b1.Pages < 0)
             {
-                Console.WriteLine("Fel inputt!");
-             
+                Console.WriteLine("Fel input!");
+
             }
             else
             {
@@ -35,8 +35,6 @@ namespace Modul5
         public int ISBN { get; set; }
         public string Author { get; set; }
 
-
-
         private int _pages;
         public int Pages {
 
@@ -50,14 +48,9 @@ namespace Modul5
             }
         }
 
-
-
-
-
-
-        public byte Weight { get; set; }
+        public int Weight { get; set; }
         public string Review { get; set; }
-        private const byte WEIGHTPERPAGE = 3;
+        private const int WEIGHTPERPAGE = 3;
 
     }
 
