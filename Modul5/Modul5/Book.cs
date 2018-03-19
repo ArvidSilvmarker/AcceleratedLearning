@@ -11,7 +11,7 @@ namespace Modul5
             b1.Pages = 2000;
             if (b1.Pages < 0)
             {
-                Console.WriteLine("Fel input!");
+                Console.WriteLine("Fel inputt!");
              
             }
             else
