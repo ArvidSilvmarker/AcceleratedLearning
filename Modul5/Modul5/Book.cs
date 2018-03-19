@@ -12,7 +12,6 @@ namespace Modul5
             if (b1.Pages < 0)
             {
                 Console.WriteLine("Fel input!");
-
             }
             else
             {
