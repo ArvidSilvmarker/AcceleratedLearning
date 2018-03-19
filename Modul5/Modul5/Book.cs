@@ -8,11 +8,18 @@ namespace Modul5
         public static void Run()
         {
             var b1 = new Book();
-            b1.Pages = 250;
-            Console.WriteLine($"Pages: {b1.Pages}");
-            Console.WriteLine($"Weight: {b1.Weight}");
-            Console.WriteLine($"Review: {b1.Review}");
-
+            b1.Pages = -10;
+            if (b1.Pages < 0)
+            {
+                Console.WriteLine("Fel input!");
+             
+            }
+            else
+            {
+                Console.WriteLine($"Pages: {b1.Pages}");
+                Console.WriteLine($"Weight: {b1.Weight}");
+                Console.WriteLine($"Review: {b1.Review}");
+            }
 
         }
     }
