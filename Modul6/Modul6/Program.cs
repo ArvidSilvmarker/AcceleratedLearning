@@ -45,7 +45,7 @@ namespace Modul6
 
             //Console.WriteLine(b1.ToString());
 
-            var modul = new Modul6_3();
+            var modul = new Modul6_6();
             modul.Run();
         }
     }

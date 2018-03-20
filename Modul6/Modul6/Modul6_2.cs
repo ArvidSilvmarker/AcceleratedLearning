@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using System.Diagnostics.SymbolStore;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace Modul6
@@ -26,6 +28,8 @@ namespace Modul6
             supercube.WriteColor();
             Console.WriteLine();
             Console.WriteLine($"The difference in areas is {supercube.AreaDifference(mycube)}");
+            Console.WriteLine();
+            Console.WriteLine($"The diagonal is: {mycube.Diagonal}");
         }
     }
 
@@ -36,6 +40,7 @@ namespace Modul6
         public int Width { get; set; }
         public ConsoleColor Color { get; set; }
 
+        public double Diagonal => Math.Sqrt((Height * Height + Length * Length) * (Height * Height + Length * Length) + Width * Width);
      
         public Cube(int h, int l ,int w)
         {
