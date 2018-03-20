@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Modul6
 {
@@ -20,6 +21,8 @@ namespace Modul6
                 else
                     zippy.ZipCode = input;
             }
+
+            Console.WriteLine(zippy.TestAndFetch("412 23"));
 
         }
     }
@@ -45,34 +48,54 @@ namespace Modul6
 
         public bool IsZipCode(string newZipCode)
         {
-            bool isZipCode = true;
-            if (newZipCode.Length != 6)
-            {
-                Console.WriteLine("Zipcode must have 6 positions.");
-                return false;
-            }
+            //bool isZipCode = true;
+            //if (newZipCode.Length != 6)
+            //{
+            //    Console.WriteLine("Zipcode must have 6 positions.");
+            //    return false;
+            //}
 
-            for (int i = 0; i < newZipCode.Length; i++)
-            {
-                if (i < 3 && !Char.IsDigit(newZipCode[i]))
-                {
-                    Console.WriteLine("Zipcode must have digit on position 1, 2, 3.");
-                    isZipCode = false;
-                }
-                else if (i == 3 && newZipCode[i] != ' ')
-                {
-                    Console.WriteLine("Zipcode must have space on 4th position.");
-                    isZipCode = false;
-                }
-                else if (i > 3 && i < 6 && !Char.IsDigit(newZipCode[i]))
-                {
-                    Console.WriteLine("Zipcode must have digit on position 5 & 6.");
-                    isZipCode = false;
-                }
-            }
+            //for (int i = 0; i < newZipCode.Length; i++)
+            //{
+            //    if (i < 3 && !Char.IsDigit(newZipCode[i]))
+            //    {
+            //        Console.WriteLine("Zipcode must have digit on position 1, 2, 3.");
+            //        isZipCode = false;
+            //    }
+            //    else if (i == 3 && newZipCode[i] != ' ')
+            //    {
+            //        Console.WriteLine("Zipcode must have space on 4th position.");
+            //        isZipCode = false;
+            //    }
+            //    else if (i > 3 && i < 6 && !Char.IsDigit(newZipCode[i]))
+            //    {
+            //        Console.WriteLine("Zipcode must have digit on position 5 & 6.");
+            //        isZipCode = false;
+            //    }
+            //}
 
-            return isZipCode;
+            //return isZipCode;
+
+            string myPattern = @"\d{3} \d{2}";
+            var myRegex = new Regex(myPattern);
+            if (myRegex.IsMatch(newZipCode))
+                return true;
+            Console.WriteLine("ZipCode must be in format DDD DD, where D is a digit.");
+            return false;
+            
         }
+
+        public string TestAndFetch(string input)
+        {
+            MatchCollection matches = new Regex(@"\d\d").Matches(input);
+
+            if (Regex.IsMatch(input, @"\d{3} \d{2}"))
+                return $"{matches[0]} {matches[1]}";
+
+
+            Console.WriteLine("ZipCode must be in format DDD DD, where D is a digit.");
+            return "";
+    }
 
         public string GetZipCode()
         {
