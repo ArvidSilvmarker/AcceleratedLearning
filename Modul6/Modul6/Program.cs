@@ -32,7 +32,7 @@ namespace Modul6
             //var b2 = new BlogPost("Min andra rubrik");
             //b1.WriteHeader();
             //b2.WriteHeader();
-            var modul = new Modul6_1();
+            var modul = new Modul6_2();
             modul.Run();
         }
     }
