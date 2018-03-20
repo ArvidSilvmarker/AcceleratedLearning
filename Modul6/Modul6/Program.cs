@@ -23,16 +23,29 @@ namespace Modul6
             Console.WriteLine($"Bloggpostens har rubrik {Header}, och postades {PostedDate}");
         }
 
+        public string TillSträng()
+        {
+            return $"En bloggpost med rubrik {Header}";
+        }
+
+        public override string ToString()
+        {
+            return $"En bloggpost med rubrik {Header}";
+        }
+
     }
     class Program
     {
         static void Main(string[] args)
         {
-            //var b1 = new BlogPost("Min rubrik", new DateTime(2018,03,19));
+            //var b1 = new BlogPost("Min rubrik", new DateTime(2018, 03, 19));
             //var b2 = new BlogPost("Min andra rubrik");
             //b1.WriteHeader();
             //b2.WriteHeader();
-            var modul = new Modul6_2();
+
+            //Console.WriteLine(b1.ToString());
+
+            var modul = new Modul6_3();
             modul.Run();
         }
     }

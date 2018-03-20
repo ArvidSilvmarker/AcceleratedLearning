@@ -8,9 +8,9 @@ namespace Modul6
     {
         public void Run()
         {
-            Circle bob = new Circle("Bob", 8);
-            Sphere lisa = new Sphere("Lisa", 8);
-            HyperSphere ali = new HyperSphere("Ali", 8);
+            var bob = new CircleOld("Bob", 8);
+            var lisa = new Sphere("Lisa", 8);
+            var ali = new HyperSphere("Ali", 8);
 
             bob.SayHello();
             lisa.SayHello();
@@ -24,23 +24,23 @@ namespace Modul6
         }
     }
 
-    class Circle
+    class CircleOld
     {
         public string Name { get; set; }
         public double Radius { get; set; }
-        public Circle(string name, double radius)
+        public CircleOld(string name, double radius)
         {
             Name = name;
             Radius = radius;
         }
 
-        public Circle(string name)
+        public CircleOld(string name)
         {
             Name = name;
             Radius = 5;
         }
 
-        public Circle()
+        public CircleOld()
         {
             Name = "Unknown";
             Radius = 5;
@@ -58,7 +58,7 @@ namespace Modul6
         }
     }
 
-    class Sphere : Circle
+    class Sphere : CircleOld
     {
         public Sphere(string name, double radius) : base(name, radius) { }
         public Sphere(string name) : base(name) { }
