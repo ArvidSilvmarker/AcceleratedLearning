@@ -6,7 +6,7 @@ namespace Modul8
     {
         static void Main(string[] args)
         {
-            var app = new Modul8_1();
+            var app = new Modul8_2();
             app.Run();
         }
     }
