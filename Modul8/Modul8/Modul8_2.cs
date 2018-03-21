@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace Modul8
 {
@@ -9,7 +10,6 @@ namespace Modul8
     {
         public void Run()
         {
-
             try
             {
                 Console.Write("Skriv in filnamn: ");
