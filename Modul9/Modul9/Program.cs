@@ -6,8 +6,12 @@ namespace Modul9
     {
         static void Main(string[] args)
         {
-            var app = new Modul9_1();
+            var app = new Modul9_3();
             app.Run();
+            //Modul9_3.Run();
+
         }
+
+
     }
 }
