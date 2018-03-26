@@ -6,7 +6,8 @@ namespace Modul10
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var app = new Modul10_4();
+            app.Run();
         }
     }
 }
