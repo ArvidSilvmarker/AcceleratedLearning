@@ -1,13 +1,14 @@
 ﻿using System;
 
-namespace Modul10
+namespace Modul12
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var app = new Modul10_5();
+            var app = new Modul12_1();
             app.Run();
+
         }
     }
 }

@@ -11,11 +11,10 @@ namespace Modul10
     {
         public void Run()
         {
-            SaveJson();
-            foreach (var monster in LoadJson())
-            {
-                Console.WriteLine(monster);
-            }
+            var dic = new Dictionary<char, int> {{'A', 35}, {'B', 45}, {'C', 68}};
+            Console.WriteLine(dic['B']);
+            Console.WriteLine(dic.ContainsKey('F'));
+
         }
 
         private void InfiniteNumbers()
@@ -96,7 +95,7 @@ namespace Modul10
             List<string> monsters = new List<string>();
             using (StreamReader r = new StreamReader(@"C:\temp\file.json"))
             {
-                string json = r.ReadToEnd();Anders Dahl
+                string json = r.ReadToEnd();
 
                 dynamic array = JsonConvert.DeserializeObject(json);
                 foreach (string a in array)
