@@ -15,26 +15,28 @@ namespace Modul10
 
         private void ADicMove()
         {
-            Console.Write("Vill du att programmet ska skriva över produkter som redan finns? ");
-            bool replace = Console.ReadLine().Trim().ToLower().Contains("ja") ? true : false;
+            //Console.Write("Vill du att programmet ska skriva över produkter som redan finns? ");
+            //bool replace = Console.ReadLine().Trim().ToLower().Contains("ja") ? true : false;
             var products = new Dictionary<int, Product>();
             while (true)
             {
-                Console.Write("Skriv in produkt (ID, namn, finns i lager (ja/nej), Butik(Inga, En, Många): ");
+                Console.Write("Skriv in produkt (ID, namn): ");
                 string answer = Console.ReadLine();
+                List<string> commands = new List<string>();
+
                 if (answer.Trim().ToLower() == "quit" || string.IsNullOrWhiteSpace(answer))
                     break;
+
+                if (answer.ToLower().Contains("command:"))
+                    commands = GetCommand(answer);
+                
+
+
                 object[] array = answer.Split(',').Select(text => text.Trim()).ToArray();
-
-                int id = Convert.ToInt32(array[0]);
-                bool k = products.ContainsKey(id);
-                bool c = replace;
-
-
 
                 if (products.ContainsKey(Convert.ToInt32(array[0])))
                 {
-                    if (replace)
+                    if (commands.Contains("replace"))
                         products.Remove(Convert.ToInt32(array[0]));
                     else
                     {
@@ -43,8 +45,14 @@ namespace Modul10
                     }
                 }
 
+                if (commands.Contains("toupper"))
+                    array[1] = array[1].ToString().ToUpper();
+                if (commands.Contains("tolower"))
+                    array[1] = array[1].ToString().ToLower();
+
                 try
                 {
+
                     products = AddProduct(products, array);
                 }
                 catch (Exception e)
@@ -59,6 +67,20 @@ namespace Modul10
             PrintDic(products);
 
 
+        }
+
+        private void PrintFiveFirst(List<string> texts)
+        {
+            texts.Take(5).ToList().ForEach(text => Console.WriteLine(text));
+        }
+
+
+        private List<string> GetCommand(string answer)
+        {
+            string[] text = answer.Split(',');
+            List<string> commands = text[2].Split(':',StringSplitOptions.RemoveEmptyEntries).ToList();
+            commands.RemoveAt(0);
+            return commands.Select(command => command.ToLower()).ToList();
         }
 
         private void PrintDic(Dictionary<int, Product> dic)
